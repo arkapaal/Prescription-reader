@@ -89,12 +89,11 @@ pip install torch transformers Pillow jiwer tqdm
 
 The model is evaluated on the last 100 images of the dataset using:
 
-| Metric | Description |
-|---|---|
-| **Accuracy** | % of predictions matching the actual label |
-| **CER** | Character Error Rate (lower is better) |
-| **WER** | Word Error Rate (lower is better) |
+Accuracy : 72.00%
+CER      : 0.3649
+WER      : 0.2485
 
+Loss after 10th epoch =1.6678
 ---
 
 ## 🐛 Known Issues & Findings
