@@ -30,7 +30,37 @@ Handwritten prescriptions are a major source of medical errors in pharmacies. Th
 - **Labels:** Extracted from filenames using custom parsing logic
 
 ---
+## work flow
+ Prescription Image
+        ↓
+┌─────────────────────┐
+│   PIL + OpenCV      │  ← Image preprocessing
+│   (resize, denoise) │
+└─────────────────────┘
+        ↓
+┌─────────────────────┐
+│   TrOCRProcessor    │  ← Convert to tensor
+│   (pixel_values)    │
+└─────────────────────┘
+        ↓
+┌─────────────────────┐
+│   ViT Encoder       │  ← Understand image
+│   (Visual features) │
+└─────────────────────┘
+        ↓
+┌─────────────────────┐
+│   RoBERTa Decoder   │  ← Generate text
+│   (Token by token)  │
+└─────────────────────┘
+        ↓
+┌─────────────────────┐
+│   Post Processing   │  ← Clean output
+│   get_actual_label()│
+└─────────────────────┘
+        ↓
+💊 "Amoxicillin 500mg"
 
+---
 ## ⚙️ Training Setup
 
 | Parameter | Value |
